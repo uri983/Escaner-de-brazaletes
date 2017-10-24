@@ -201,6 +201,7 @@ myApp.onPageInit('captura', function (page) {
                         myApp.alert(data,'Error');
                         localStorage.username = data['user_id'];
                         localStorage.usermail = data['user']; 
+                        $('#name').html(localStorage.usermail);
                         myApp.closeModal();
                     }else{
                         myApp.alert('Error en inicio de sesión','Error');                    
