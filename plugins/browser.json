@@ -1,0 +1,36 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.apiqroo.scannerapp"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.apiqroo.scannerapp"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.apiqroo.scannerapp"
+        },
+        "cordova-plugin-x-toast": {
+            "PACKAGE_NAME": "com.apiqroo.scannerapp"
+        },
+        "cordova-sqlite-storage": {
+            "PACKAGE_NAME": "com.apiqroo.scannerapp"
+        },
+        "cordova-plugin-device-orientation": {
+            "PACKAGE_NAME": "com.apiqroo.scannerapp"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.apiqroo.scannerapp"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.apiqroo.scannerapp"
+        }
+    },
+    "dependent_plugins": {}
+}

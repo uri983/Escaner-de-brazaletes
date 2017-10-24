@@ -1,0 +1,55 @@
+<!-- We don't need a full layout in this file because this page will be parsed with Ajax. -->
+
+<!-- Top Navbar-->
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="left">
+            <a href="#" style="color: #0091BC;" class="back link">
+                <i class="fa fa-chevron-left"></i>                
+            </a>
+        </div>
+        <div class="center sliding">Lector de brazaletes</div>
+        <div class="right">
+            <a href="#" style="color: #0091BC;" class="link icon-only open-panel"><i class="fa fa-bars"></i></a>
+        </div>
+    </div>
+</div>
+<div class="pages">
+    <div style="background-color: #e7e7e9;" data-page="captura" class="page">
+        <div class="page-content">
+            <div class="content-block">
+
+                <div class="card">
+                    <div style="color: #ffffff; background-color: #0091BC;" class="card-header">Código</div>
+                <div class="card-content">
+                <div class="card-content-inner">
+                    <form action="#" class="w-clearfix" data-name="Send"  name="wf-form-Send"><input class="input-chat w-input"  id="code" maxlength="256"  placeholder="Código" required="required" type="text"> </form>
+                </div>
+                </div>
+                </div>
+
+                <div class="card">
+                <div style="color: #ffffff; background-color: #0091BC;" class="card-header">Instrucciones</div>
+                <div class="card-content">
+                <div class="card-content-inner">
+                    <ul>
+                        <li>Verifica que el dispositivo lector de códigos este conectado</li>
+                        <li>Escanea el código de brazalete</li>
+                        <li>Espera la respuesta de validación</li>
+                    </ul>
+                    <h5>Respuestas</h5>
+                    <ul>
+                        <li>Registrado con éxito: el código es valido y se autorizo su uso.</li>
+                        <li>Folio duplicado: el folio ya fue usado anteriormente.</li>
+                        <li>Folio no vendido: el folio es correcto pero no esta vendido.</li>
+                        <li>Folio no existente: el folio no existe.</li>
+                    </ul>
+
+                </div>
+                </div>                
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
