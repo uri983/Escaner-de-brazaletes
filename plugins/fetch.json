@@ -31,14 +31,6 @@
         "is_top_level": true,
         "variables": {}
     },
-    "cordova-sqlite-storage": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-sqlite-storage"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
     "cordova-plugin-device-orientation": {
         "source": {
             "type": "registry",
