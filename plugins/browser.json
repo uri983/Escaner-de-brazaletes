@@ -27,6 +27,9 @@
         },
         "cordova-plugin-splashscreen": {
             "PACKAGE_NAME": "com.apiqroo.scannerapp"
+        },
+        "cordova-plugin-spinner": {
+            "PACKAGE_NAME": "com.apiqroo.scannerapp"
         }
     },
     "dependent_plugins": {}

@@ -30,6 +30,9 @@
         },
         "cordova-plugin-splashscreen": {
             "PACKAGE_NAME": "com.apiqroo.scannerapp"
+        },
+        "cordova-plugin-spinner": {
+            "PACKAGE_NAME": "com.apiqroo.scannerapp"
         }
     },
     "dependent_plugins": {},
@@ -129,6 +132,14 @@
             "id": "cordova-plugin-splashscreen.SplashScreenProxy",
             "pluginId": "cordova-plugin-splashscreen",
             "runs": true
+        },
+        {
+            "file": "plugins/cordova-plugin-spinner/www/spinner-plugin.js",
+            "id": "cordova-plugin-spinner.SpinnerPlugin",
+            "pluginId": "cordova-plugin-spinner",
+            "clobbers": [
+                "SpinnerPlugin"
+            ]
         }
     ],
     "plugin_metadata": {
@@ -139,6 +150,7 @@
         "cordova-sqlite-storage": "2.0.4",
         "cordova-plugin-device-orientation": "1.0.7",
         "cordova-plugin-network-information": "1.3.3",
-        "cordova-plugin-splashscreen": "4.0.3"
+        "cordova-plugin-splashscreen": "4.0.3",
+        "cordova-plugin-spinner": "1.1.0"
     }
 }

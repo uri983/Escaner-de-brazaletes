@@ -189,7 +189,8 @@ myApp.onPageInit('captura', function (page) {
               myApp.alert('No dejes campos vacios','Error'); 
 
             }else{
-                 
+                 var options = { dimBackground: true };
+                SpinnerPlugin.activityStart("Cargando...", options);
                 $.ajax({                
                     type: 'POST',
                     url: "http://servicios.apiqroo.com.mx/app_scanner/home/verifyUser",
@@ -203,8 +204,12 @@ myApp.onPageInit('captura', function (page) {
                         localStorage.usermail = data['user']; 
                         $('#name').html(localStorage.usermail);
                         myApp.closeModal();
+                        SpinnerPlugin.activityStop();
+
                     }else{
-                        myApp.alert('Error en inicio de sesión','Error');                    
+                        SpinnerPlugin.activityStop(); 
+                        myApp.alert('Error en inicio de sesión','Error');
+
                     }                  
                     
                 }) 
