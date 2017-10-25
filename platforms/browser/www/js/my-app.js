@@ -17,6 +17,7 @@ $$(document).on('deviceready', function() {
 
     if(checkConnection() == 0){
         toast('Sin conexión');
+        $('#conexion').show();
     }
     if(localStorage.username != undefined ) {
        myApp.closeModal(); 
@@ -71,6 +72,18 @@ myApp.onPageInit('captura', function (page) {
 
 
     function saveCode(code,date) {
+
+        //if(checkConnection() == 0){
+        var db = sqlitePlugin.openDatabase({name: 'folio.db'});
+        db.transaction(function (txn) {
+          txn.executeSql('SELECT 42 AS `answer`', [], function (tx, res) {
+            console.log(res.rows.item(0)); // {"answer": 42} 
+            toast(res.rows.item(0));
+          });
+        });
+        //}
+
+        
         
         puerto = "";
         $.ajax({
