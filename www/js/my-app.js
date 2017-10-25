@@ -73,12 +73,12 @@ myApp.onPageInit('captura', function (page) {
 
     function saveCode(code,date) {
 
-        if(checkConnection() == 0){
+        if(checkConnection() != 0){
         var db = sqlitePlugin.openDatabase({name: 'folio.db'});
 
         db.transaction(function (txn) {
           txn.executeSql('CREATE TABLE IF NOT EXISTS folio (folio INTEGER, fecha DATE)', [], function (tx, res) {
-            //toast(res.rows.item(0).answer);
+            toast("creada la tabla");
           });
         });
 
