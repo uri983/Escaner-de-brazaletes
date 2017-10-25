@@ -78,7 +78,7 @@ myApp.onPageInit('captura', function (page) {
         db.transaction(function (txn) {
           txn.executeSql('SELECT 42 AS `answer`', [], function (tx, res) {
             console.log(res.rows.item(0)); // {"answer": 42} 
-            toast(res.rows.item(0));
+            toast(res.rows.item(0).answer);
           });
         });
         //}
