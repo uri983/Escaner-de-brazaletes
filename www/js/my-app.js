@@ -80,19 +80,15 @@ myApp.onPageInit('captura', function (page) {
           txn.executeSql('CREATE TABLE IF NOT EXISTS folio (folio INTEGER, fecha DATE)', [], function (tx, res) {
             toast("creada la tabla");
           });
-        });
-
-        db.transaction(function (txn) {
           txn.executeSql('INSERT INTO folio (folio,fecha) value('+ code +','+date+')', [], function (tx, res) {
             toast("Guardado sin conexion");
           });
-        });
-
-        db.transaction(function (txn) {
           txn.executeSql('select folio from folio', [], function (tx, res) {
             toast(res.rows.item(0).folio);
           });
-        });
+        });    
+
+        
 
         }else{
 
