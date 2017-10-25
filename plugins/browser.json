@@ -22,9 +22,6 @@
         "cordova-plugin-splashscreen": {
             "PACKAGE_NAME": "com.apiqroo.scannerapp"
         },
-        "cordova-plugin-sqlite-2": {
-            "PACKAGE_NAME": "com.apiqroo.scannerapp"
-        },
         "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "com.apiqroo.scannerapp"
         },
@@ -32,6 +29,9 @@
             "PACKAGE_NAME": "com.apiqroo.scannerapp"
         },
         "cordova-plugin-x-toast": {
+            "PACKAGE_NAME": "com.apiqroo.scannerapp"
+        },
+        "cordova-sqlite-storage": {
             "PACKAGE_NAME": "com.apiqroo.scannerapp"
         }
     },

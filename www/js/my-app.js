@@ -78,7 +78,7 @@ myApp.onPageInit('captura', function (page) {
 
         db.transaction(function (txn) {
           txn.executeSql('CREATE TABLE IF NOT EXISTS folio (folio INTEGER, fecha DATE)', [], function (tx, res) {
-            toast("creada la tabla");
+            toast(res);
           });
           txn.executeSql('INSERT INTO folio (folio,fecha) value('+ code +','+date+')', [], function (tx, res) {
             toast("Guardado sin conexion");
