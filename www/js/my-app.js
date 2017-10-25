@@ -14,6 +14,10 @@ var mainView = myApp.addView('.view-main', {
 // Handle Cordova Device Ready Event
 $$(document).on('deviceready', function() {
 
+
+    if(checkConnection() == 0){
+        toast('Sin conexión');
+    }
     if(localStorage.username != undefined ) {
        myApp.closeModal(); 
        $('#name').html(localStorage.usermail);
@@ -217,6 +221,45 @@ myApp.onPageInit('captura', function (page) {
             }
 
     }
+
+    function checkConnection() {
+    var networkState = navigator.connection.type;
+
+    var states = {};
+    states[Connection.UNKNOWN]  = 'Unknown connection';
+    states[Connection.ETHERNET] = 'Ethernet connection';
+    states[Connection.WIFI]     = 'WiFi connection';
+    states[Connection.CELL_2G]  = 'Cell 2G connection';
+    states[Connection.CELL_3G]  = 'Cell 3G connection';
+    states[Connection.CELL_4G]  = 'Cell 4G connection';
+    states[Connection.CELL]     = 'Cell generic connection';
+    states[Connection.NONE]     = 0;
+
+    return states[networkState];
+    }
+
+
+
+    function toast(message){
+        window.plugins.toast.showWithOptions(
+                        {
+                          message: message,
+                          duration: "short", // which is 2000 ms. "long" is 4000. Or specify the nr of ms yourself. 
+                          position: "center",
+                          addPixelsY: -40,
+                          styling: {
+                              opacity: 0.75, // 0.0 (transparent) to 1.0 (opaque). Default 0.8 
+                              backgroundColor: '#e33c3e', // make sure you use #RRGGBB. Default #333333 
+                              textColor: '#FFFFFF', // Ditto. Default #FFFFFF 
+                              textSize: 20.5, // Default is approx. 13. 
+                              cornerRadius: 16, // minimum is 0 (square). iOS default 20, Android default 100 
+                              horizontalPadding: 20, // iOS default 16, Android default 50 
+                              verticalPadding: 16 // iOS default 12, Android default 30 
+                            } 
+                        })
+    }
+
+
 
 
 

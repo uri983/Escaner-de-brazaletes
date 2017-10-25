@@ -30,6 +30,9 @@
         },
         "cordova-plugin-spinner": {
             "PACKAGE_NAME": "com.apiqroo.scannerapp"
+        },
+        "cordova-plugin-sqlite-2": {
+            "PACKAGE_NAME": "com.apiqroo.scannerapp"
         }
     },
     "dependent_plugins": {}

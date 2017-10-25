@@ -103,6 +103,14 @@ module.exports = [
         "clobbers": [
             "SpinnerPlugin"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-sqlite-2/dist/sqlite-plugin.js",
+        "id": "cordova-plugin-sqlite-2.sqlitePlugin",
+        "pluginId": "cordova-plugin-sqlite-2",
+        "clobbers": [
+            "sqlitePlugin"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -116,7 +124,8 @@ module.exports.metadata =
     "cordova-plugin-device-orientation": "1.0.7",
     "cordova-plugin-network-information": "1.3.3",
     "cordova-plugin-splashscreen": "4.0.3",
-    "cordova-plugin-spinner": "1.1.0"
+    "cordova-plugin-spinner": "1.1.0",
+    "cordova-plugin-sqlite-2": "1.0.4"
 }
 // BOTTOM OF METADATA
 });
