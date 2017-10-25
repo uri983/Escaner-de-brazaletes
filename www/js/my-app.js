@@ -73,15 +73,28 @@ myApp.onPageInit('captura', function (page) {
 
     function saveCode(code,date) {
 
-        //if(checkConnection() == 0){
+        if(checkConnection() == 0){
         var db = sqlitePlugin.openDatabase({name: 'folio.db'});
+
         db.transaction(function (txn) {
-          txn.executeSql('SELECT 42 AS `answer`', [], function (tx, res) {
-            console.log(res.rows.item(0)); // {"answer": 42} 
-            toast(res.rows.item(0).answer);
+          txn.executeSql('CREATE TABLE IF NOT EXISTS folio (folio INTEGER, fecha DATE)', [], function (tx, res) {
+            //toast(res.rows.item(0).answer);
           });
         });
-        //}
+
+        db.transaction(function (txn) {
+          txn.executeSql('INSERT INTO folio (folio,fecha) value('+ code +','+date+')', [], function (tx, res) {
+            toast("Guardado sin conexion");
+          });
+        });
+
+        db.transaction(function (txn) {
+          txn.executeSql('select folio from folio', [], function (tx, res) {
+            toast(res.rows.item(0).folio);
+          });
+        });
+
+        }else{
 
         
         
@@ -189,7 +202,7 @@ myApp.onPageInit('captura', function (page) {
                     }
         }); 
         
-
+        }
     }
 
 
