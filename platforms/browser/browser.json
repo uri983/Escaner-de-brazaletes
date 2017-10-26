@@ -36,6 +36,9 @@
         },
         "cordova-plugin-sqlite-2": {
             "PACKAGE_NAME": "com.apiqroo.scannerapp"
+        },
+        "cordova-plugin-vibration": {
+            "PACKAGE_NAME": "com.apiqroo.scannerapp"
         }
     },
     "dependent_plugins": {},
@@ -151,6 +154,24 @@
             "clobbers": [
                 "sqlitePlugin"
             ]
+        },
+        {
+            "file": "plugins/cordova-plugin-vibration/www/vibration.js",
+            "id": "cordova-plugin-vibration.notification",
+            "pluginId": "cordova-plugin-vibration",
+            "merges": [
+                "navigator.notification",
+                "navigator"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-vibration/src/browser/Vibration.js",
+            "id": "cordova-plugin-vibration.Vibration",
+            "pluginId": "cordova-plugin-vibration",
+            "merges": [
+                "navigator.notification",
+                "navigator"
+            ]
         }
     ],
     "plugin_metadata": {
@@ -163,6 +184,7 @@
         "cordova-plugin-network-information": "1.3.3",
         "cordova-plugin-splashscreen": "4.0.3",
         "cordova-plugin-spinner": "1.1.0",
-        "cordova-plugin-sqlite-2": "1.0.4"
+        "cordova-plugin-sqlite-2": "1.0.4",
+        "cordova-plugin-vibration": "2.1.5"
     }
 }

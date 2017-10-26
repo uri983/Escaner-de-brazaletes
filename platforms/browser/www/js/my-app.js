@@ -192,6 +192,8 @@ $$(document).on('deviceready', function() {
                     if(data['action']== 2){
                         
                         console.log('Duplicado');
+                        navigator.notification.beep(3);
+                        navigator.vibrate(3000);
                         if(alert_mode == true){
                         window.plugins.toast.showWithOptions(
                         {
@@ -213,8 +215,9 @@ $$(document).on('deviceready', function() {
                       );
                     }
                     }else if(data['action']== 1){
-                       
+                        navigator.notification.beep(1);
                         console.log('Correcto');
+                        navigator.vibrate(3000);
                         if(alert_mode == true){
                       window.plugins.toast.showWithOptions(
                         {
@@ -239,6 +242,8 @@ $$(document).on('deviceready', function() {
                     }else if(data['action']== 3){
                         
                         console.log('Folio no vendido');
+                        navigator.notification.beep(2);
+                        navigator.vibrate(3000);
                         if(alert_mode == true){
                         window.plugins.toast.showWithOptions(
                         {
@@ -262,6 +267,8 @@ $$(document).on('deviceready', function() {
                     }else if(data['action']== 0){
                      
                       console.log('no existe');
+                      navigator.notification.beep(2);
+                      navigator.vibrate(3000);
                       if(alert_mode == true){
                         window.plugins.toast.showWithOptions(
                         {

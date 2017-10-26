@@ -22,6 +22,14 @@ module.exports = [
         "pluginId": "cordova-plugin-x-toast"
     },
     {
+        "file": "plugins/cordova-sqlite-storage/www/SQLitePlugin.js",
+        "id": "cordova-sqlite-storage.SQLitePlugin",
+        "pluginId": "cordova-sqlite-storage",
+        "clobbers": [
+            "SQLitePlugin"
+        ]
+    },
+    {
         "file": "plugins/cordova-plugin-device-orientation/www/CompassError.js",
         "id": "cordova-plugin-device-orientation.CompassError",
         "pluginId": "cordova-plugin-device-orientation",
@@ -103,6 +111,24 @@ module.exports = [
         "clobbers": [
             "sqlitePlugin"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-vibration/www/vibration.js",
+        "id": "cordova-plugin-vibration.notification",
+        "pluginId": "cordova-plugin-vibration",
+        "merges": [
+            "navigator.notification",
+            "navigator"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-vibration/src/browser/Vibration.js",
+        "id": "cordova-plugin-vibration.Vibration",
+        "pluginId": "cordova-plugin-vibration",
+        "merges": [
+            "navigator.notification",
+            "navigator"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -112,11 +138,13 @@ module.exports.metadata =
     "cordova-plugin-console": "1.0.7",
     "cordova-plugin-statusbar": "1.0.1",
     "cordova-plugin-x-toast": "2.6.0",
+    "cordova-sqlite-storage": "2.0.4",
     "cordova-plugin-device-orientation": "1.0.7",
     "cordova-plugin-network-information": "1.3.3",
     "cordova-plugin-splashscreen": "4.0.3",
     "cordova-plugin-spinner": "1.1.0",
-    "cordova-plugin-sqlite-2": "1.0.4"
+    "cordova-plugin-sqlite-2": "1.0.4",
+    "cordova-plugin-vibration": "2.1.5"
 }
 // BOTTOM OF METADATA
 });
