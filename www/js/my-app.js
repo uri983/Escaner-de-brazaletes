@@ -45,45 +45,68 @@ $$(document).on('deviceready', function() {
 
 // Now we need to run the code that will be executed only for About page.
 
+    myApp.onPageInit('datos_local', function (page) {
+            
+            var db = window.openDatabase('local', '1.0', 'local', 2 * 1024 * 1024);
+
+            db.transaction(function (tx) {
+               tx.executeSql('SELECT * FROM folio', [], function (tx, results) {
+                  var len = results.rows.length, i;
+                  //msg = "<p>Found rows: " + len + "</p>";
+                  //document.querySelector('#status').innerHTML +=  msg;
+                    msg="";
+                  for (i = 0; i < len; i++){
+                     msg += '<tr><td class="numeric-cell">'+results.rows.item(i).folio+'</td><td class="numeric-cell">'+results.rows.item(i).fecha+'</td></tr>'
+                      
+                  }
+                  $('#tabla_datos').html(msg);
+                
+               }, null);
+            });
+
+    })
+
 // Option 1. Using page callback for page (for "about" page in this case) (recommended way):
-myApp.onPageInit('captura', function (page) {
-        $('#code').focus();
-        $('#code').focusout(function(){
-         $('#code').focus();
-        });
+    myApp.onPageInit('captura', function (page) {
+            $('#code').focus();
+            $('#code').focusout(function(){
+             $('#code').focus();
+            });
 
-        //$('.page').css('background-color','#e7e7e9');
-        $('#code').change(function (e) { 
-            var d = new Date($.now());
-            var time = d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate()+" "+d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
-            if($('#code').val() == ""){
+            //$('.page').css('background-color','#e7e7e9');
+            $('#code').change(function (e) { 
+                var d = new Date($.now());
+                var time = d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate()+" "+d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+                if($('#code').val() == ""){
 
-                        
-            }else{
-                saveCode($('#code').val(),time);
-            }            
-            $('#code').val('');
-            $('#code').focus();               
+                            
+                }else{
+                    saveCode($('#code').val(),time);
+                }            
+                $('#code').val('');
+                $('#code').focus();               
 
-        });
+            });
 
 
-})
+    })
 
 
     function saveCode(code,date) {
 
-        if(checkConnection() != 0){
-        var db = sqlitePlugin.openDatabase({name: 'folio.db'});
+        if(checkConnection() == 0){
+        
+        var db = window.openDatabase('local', '1.0', 'local', 2 * 1024 * 1024);
 
-        db.transaction(function (txn) {
-          txn.executeSql('CREATE TABLE IF NOT EXISTS folio (folio INTEGER, fecha DATE)');
-          txn.executeSql('INSERT INTO folio (folio,fecha) value('+ code +','+date+')');
-          txn.executeSql('select folio from folio', [], function (tx, res) {
-            toast(res.rows.item(0).folio);
-          });
-        });    
+        db.transaction(function (tx) {  
+           tx.executeSql('CREATE TABLE IF NOT EXISTS folio (folio INTEGER,fecha TEXT)');
+           tx.executeSql('INSERT INTO folio (folio, fecha) VALUES (?,?)', [code, date]);
+           
+        });  
 
+              
+
+        toast('guardado sin conexion');       
         
 
         }else{
