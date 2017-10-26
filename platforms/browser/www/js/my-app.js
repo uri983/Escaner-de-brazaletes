@@ -46,7 +46,8 @@ $$(document).on('deviceready', function() {
 // Now we need to run the code that will be executed only for About page.
 
     myApp.onPageInit('datos_local', function (page) {
-            
+            var options = { dimBackground: true };
+            SpinnerPlugin.activityStart("Cargando..", options);
             var db = window.openDatabase('local', '1.0', 'local', 2 * 1024 * 1024);            
             db.transaction(function (tx) {
                tx.executeSql('SELECT * FROM folio', [], function (tx, results) {
@@ -61,6 +62,12 @@ $$(document).on('deviceready', function() {
                 
                }, null);
             });
+
+            SpinnerPlugin.activityStop();
+
+            $("#btn_sync").on('click',function (e) {               
+                sync();  
+            })
 
     })
 
@@ -79,7 +86,8 @@ $$(document).on('deviceready', function() {
 
                             
                 }else{
-                    saveCode($('#code').val(),time);
+                    alert_mode = true;
+                    saveCode($('#code').val(),time,alert_mode);
                 }            
                 $('#code').val('');
                 $('#code').focus();               
@@ -87,25 +95,53 @@ $$(document).on('deviceready', function() {
             });
 
 
+
     })
 
+    function sync(){
+        var options = { dimBackground: true };
+        SpinnerPlugin.activityStart("Sincronizando..", options);
 
-    function saveCode(code,date) {
+        var db = window.openDatabase('local', '1.0', 'local', 2 * 1024 * 1024);            
+            db.transaction(function (tx) {
+               tx.executeSql('SELECT * FROM folio', [], function (tx, results) {
+                  var len = results.rows.length, i;
+                  
+                  alert_mode = false;
+                  for (i = 0; i < len; i++){
+                    // msg += '<tr><td class="numeric-cell">'+results.rows.item(i).folio+'</td><td class="numeric-cell">'+results.rows.item(i).fecha+'</td></tr>';
+                    saveCode(results.rows.item(i).folio,results.rows.item(i).fecha,alert_mode); 
+                    tx.executeSql('DELETE FROM folio WHERE id = ?', [results.rows.item(i).id]);
 
-        if(checkConnection() != 0){
+                  }
+                  
+                
+               }, null);
+            });
+        
+        SpinnerPlugin.activityStop();
+    }
+
+
+    function saveCode(code,date,alert_mode) {
+        var options = { dimBackground: true };
+        if(alert_mode == true){
+        SpinnerPlugin.activityStart("Enviando..", options);
+        }
+        if(checkConnection() == 0){
         
         var db = window.openDatabase('local', '1.0', 'local', 2 * 1024 * 1024);
 
         db.transaction(function (tx) {  
-           tx.executeSql('CREATE TABLE IF NOT EXISTS folio (folio INTEGER,fecha TEXT)');
+           tx.executeSql('CREATE TABLE IF NOT EXISTS folio (id INTEGER PRIMARY KEY,folio INTEGER,fecha TEXT)');
            tx.executeSql('INSERT INTO folio (folio, fecha) VALUES (?,?)', [code, date]);
            
         });  
 
-              
-
+        if(alert_mode == true){      
+        SpinnerPlugin.activityStop();
         toast('guardado sin conexion');       
-        
+        }
 
         }else{
 
@@ -121,12 +157,13 @@ $$(document).on('deviceready', function() {
                     "puerto": puerto                    
                     },
                     success: function(data) {   
-                                         
+                     SpinnerPlugin.activityStop();                    
                     //swal(data);
                     
                     if(data['action']== 2){
                         
                         console.log('Duplicado');
+                        if(alert_mode == true){
                         window.plugins.toast.showWithOptions(
                         {
                           message: "Folio Duplicado",
@@ -143,10 +180,13 @@ $$(document).on('deviceready', function() {
                               verticalPadding: 16 // iOS default 12, Android default 30 
                             } 
                         } 
+                        
                       );
+                    }
                     }else if(data['action']== 1){
                        
                         console.log('Correcto');
+                        if(alert_mode == true){
                       window.plugins.toast.showWithOptions(
                         {
                           message: "Registrado Correctamente",
@@ -163,12 +203,14 @@ $$(document).on('deviceready', function() {
                               verticalPadding: 16 // iOS default 12, Android default 30 
                             } 
                         }
+                        
                        
                       );
-                       
+                      } 
                     }else if(data['action']== 3){
                         
                         console.log('Folio no vendido');
+                        if(alert_mode == true){
                         window.plugins.toast.showWithOptions(
                         {
                           message: "Folio no vendido",
@@ -184,11 +226,14 @@ $$(document).on('deviceready', function() {
                               horizontalPadding: 20, // iOS default 16, Android default 50 
                               verticalPadding: 16 // iOS default 12, Android default 30 
                             } 
-                        } 
+                        }
+
                       );
+                    }
                     }else if(data['action']== 0){
                      
                       console.log('no existe');
+                      if(alert_mode == true){
                         window.plugins.toast.showWithOptions(
                         {
                           message: "Folio no existente",
@@ -206,6 +251,7 @@ $$(document).on('deviceready', function() {
                             } 
                         } 
                       );
+                    }
                     }
                                 
                                        
