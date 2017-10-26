@@ -46,8 +46,8 @@ $$(document).on('deviceready', function() {
 // Now we need to run the code that will be executed only for About page.
 
     myApp.onPageInit('datos_local', function (page) {
-            var options = { dimBackground: true };
-            SpinnerPlugin.activityStart("Cargando..", options);
+            
+            
             var db = window.openDatabase('local', '1.0', 'local', 2 * 1024 * 1024);            
             db.transaction(function (tx) {
                tx.executeSql('SELECT * FROM folio', [], function (tx, results) {
@@ -63,7 +63,7 @@ $$(document).on('deviceready', function() {
                }, null);
             });
 
-            SpinnerPlugin.activityStop();
+           
 
             $("#btn_sync").on('click',function (e) {               
                 sync();  
@@ -103,11 +103,11 @@ $$(document).on('deviceready', function() {
             myApp.alert('Esta funcion requiere conexión a internet','Error'); 
         }else{
 
-        var options = { dimBackground: true };
+        
 
-        SpinnerPlugin.activityStart("Sincronizando..", options);
+        SpinnerPlugin.activityStart("Sincronizando..");
 
-        console.log('inicia');
+        
 
         var db = window.openDatabase('local', '1.0', 'local', 2 * 1024 * 1024); 
 
@@ -127,7 +127,22 @@ $$(document).on('deviceready', function() {
                }, null);
             });
 
-        console.log('termina');
+            db.transaction(function (tx) {
+               tx.executeSql('SELECT * FROM folio', [], function (tx, results) {
+                  var len = results.rows.length, i;
+                  
+                    msg="";
+                  for (i = 0; i < len; i++){
+                     msg += '<tr><td class="numeric-cell">'+results.rows.item(i).folio+'</td><td class="numeric-cell">'+results.rows.item(i).fecha+'</td></tr>';
+                      
+                  }
+                  $('#tabla_datos').html(msg);
+                
+               }, null);
+            });
+
+
+        
 
         SpinnerPlugin.activityStop();
 
