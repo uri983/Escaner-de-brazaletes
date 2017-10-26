@@ -39,7 +39,14 @@
         },
         "cordova-plugin-dialogs": {
             "PACKAGE_NAME": "com.apiqroo.scannerapp"
+        },
+        "cordova-plugin-background-service": {
+            "PACKAGE_NAME": "com.apiqroo.scannerapp"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-background-fetch": {
+            "PACKAGE_NAME": "com.apiqroo.scannerapp"
+        }
+    }
 }

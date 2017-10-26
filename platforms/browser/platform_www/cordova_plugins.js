@@ -145,6 +145,14 @@ module.exports = [
         "merges": [
             "navigator.notification"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-background-fetch/www/BackgroundFetch.js",
+        "id": "cordova-plugin-background-fetch.BackgroundFetch",
+        "pluginId": "cordova-plugin-background-fetch",
+        "clobbers": [
+            "window.BackgroundFetch"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -161,7 +169,9 @@ module.exports.metadata =
     "cordova-plugin-spinner": "1.1.0",
     "cordova-plugin-sqlite-2": "1.0.4",
     "cordova-plugin-vibration": "2.1.5",
-    "cordova-plugin-dialogs": "1.3.3"
+    "cordova-plugin-dialogs": "1.3.3",
+    "cordova-plugin-background-service": "1.3.5",
+    "cordova-plugin-background-fetch": "5.1.1"
 }
 // BOTTOM OF METADATA
 });

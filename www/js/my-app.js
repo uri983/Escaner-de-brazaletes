@@ -13,7 +13,10 @@ var mainView = myApp.addView('.view-main', {
 
 // Handle Cordova Device Ready Event
 $$(document).on('deviceready', function() {
-
+      window.BackgroundService.start(
+          function(fn) { sync(), fn && fn() },
+          function() { console.log('err') }
+      )
 
     if(checkConnection() == 0){
         toast('Sin conexión');
@@ -192,8 +195,8 @@ $$(document).on('deviceready', function() {
                     if(data['action']== 2){
                         
                         console.log('Duplicado');
-                        navigator.notification.beep(3);
-                        navigator.vibrate(500);
+                        navigator.notification.beep(1);
+                        navigator.vibrate(1000);
                         if(alert_mode == true){
                         window.plugins.toast.showWithOptions(
                         {
@@ -246,7 +249,7 @@ $$(document).on('deviceready', function() {
                         console.log('Folio no vendido');
                         
                         if(alert_mode == true){
-                            navigator.notification.beep(2);
+                            navigator.notification.beep(1);
                         navigator.vibrate(500);
                         window.plugins.toast.showWithOptions(
                         {
@@ -272,7 +275,7 @@ $$(document).on('deviceready', function() {
                       console.log('no existe');
 
                       if(alert_mode == true){
-                        navigator.notification.beep(2);
+                        navigator.notification.beep(1);
                         navigator.vibrate(500);
                         window.plugins.toast.showWithOptions(
                         {

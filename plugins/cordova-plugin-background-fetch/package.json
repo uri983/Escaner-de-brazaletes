@@ -1,0 +1,99 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "cordova-plugin-background-fetch",
+        "scope": null,
+        "escapedName": "cordova-plugin-background-fetch",
+        "name": "cordova-plugin-background-fetch",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "C:\\xampp\\htdocs\\Escaner de brazaletes\\node_modules"
+    ]
+  ],
+  "_from": "cordova-plugin-background-fetch@latest",
+  "_id": "cordova-plugin-background-fetch@5.1.1",
+  "_inCache": true,
+  "_location": "/cordova-plugin-background-fetch",
+  "_nodeVersion": "6.11.0",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/cordova-plugin-background-fetch-5.1.1.tgz_1506344839253_0.6389335254207253"
+  },
+  "_npmUser": {
+    "name": "christocracy",
+    "email": "chris@transistorsoft.com"
+  },
+  "_npmVersion": "3.10.10",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "cordova-plugin-background-fetch",
+    "scope": null,
+    "escapedName": "cordova-plugin-background-fetch",
+    "name": "cordova-plugin-background-fetch",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-background-fetch/-/cordova-plugin-background-fetch-5.1.1.tgz",
+  "_shasum": "63bfb155b8460fa71e13861c896172b516c63d5a",
+  "_shrinkwrap": null,
+  "_spec": "cordova-plugin-background-fetch",
+  "_where": "C:\\xampp\\htdocs\\Escaner de brazaletes\\node_modules",
+  "author": {
+    "name": "Chris Scott, Transistor Software",
+    "email": "chris@transistorsoft.com"
+  },
+  "bugs": {
+    "url": "https://github.com/transistorsoft/react-native-background-fetch/issues"
+  },
+  "cordova": {
+    "id": "cordova-plugin-background-fetch",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "dependencies": {},
+  "description": "Cordova implementation of iOS Background Fetch API",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "63bfb155b8460fa71e13861c896172b516c63d5a",
+    "tarball": "https://registry.npmjs.org/cordova-plugin-background-fetch/-/cordova-plugin-background-fetch-5.1.1.tgz"
+  },
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "gitHead": "e4581cc8e62e17ecb11524f231414055d5916b46",
+  "homepage": "https://github.com/transistorsoft/react-native-background-fetch",
+  "keywords": [
+    "cordova",
+    "background",
+    "fetch"
+  ],
+  "license": "MIT",
+  "maintainers": [
+    {
+      "name": "christocracy",
+      "email": "chris@transistorsoft.com"
+    }
+  ],
+  "name": "cordova-plugin-background-fetch",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/transistorsoft/cordova-plugin-background-fetch.git"
+  },
+  "scripts": {},
+  "version": "5.1.1"
+}
