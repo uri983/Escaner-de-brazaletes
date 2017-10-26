@@ -31,7 +31,7 @@
         "cordova-plugin-x-toast": {
             "PACKAGE_NAME": "com.apiqroo.scannerapp"
         },
-        "cordova-sqlite-storage": {
+        "cordova-plugin-sqlite-2": {
             "PACKAGE_NAME": "com.apiqroo.scannerapp"
         }
     },

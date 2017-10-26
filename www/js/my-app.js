@@ -77,12 +77,8 @@ myApp.onPageInit('captura', function (page) {
         var db = sqlitePlugin.openDatabase({name: 'folio.db'});
 
         db.transaction(function (txn) {
-          txn.executeSql('CREATE TABLE IF NOT EXISTS folio (folio INTEGER, fecha DATE)', [], function (tx, res) {
-            toast(res);
-          });
-          txn.executeSql('INSERT INTO folio (folio,fecha) value('+ code +','+date+')', [], function (tx, res) {
-            toast("Guardado sin conexion");
-          });
+          txn.executeSql('CREATE TABLE IF NOT EXISTS folio (folio INTEGER, fecha DATE)');
+          txn.executeSql('INSERT INTO folio (folio,fecha) value('+ code +','+date+')');
           txn.executeSql('select folio from folio', [], function (tx, res) {
             toast(res.rows.item(0).folio);
           });
