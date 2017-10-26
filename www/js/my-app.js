@@ -47,16 +47,14 @@ $$(document).on('deviceready', function() {
 
     myApp.onPageInit('datos_local', function (page) {
             
-            var db = window.openDatabase('local', '1.0', 'local', 2 * 1024 * 1024);
-
+            var db = window.openDatabase('local', '1.0', 'local', 2 * 1024 * 1024);            
             db.transaction(function (tx) {
                tx.executeSql('SELECT * FROM folio', [], function (tx, results) {
                   var len = results.rows.length, i;
-                  //msg = "<p>Found rows: " + len + "</p>";
-                  //document.querySelector('#status').innerHTML +=  msg;
+                  
                     msg="";
                   for (i = 0; i < len; i++){
-                     msg += '<tr><td class="numeric-cell">'+results.rows.item(i).folio+'</td><td class="numeric-cell">'+results.rows.item(i).fecha+'</td></tr>'
+                     msg += '<tr><td class="numeric-cell">'+results.rows.item(i).folio+'</td><td class="numeric-cell">'+results.rows.item(i).fecha+'</td></tr>';
                       
                   }
                   $('#tabla_datos').html(msg);
@@ -94,7 +92,7 @@ $$(document).on('deviceready', function() {
 
     function saveCode(code,date) {
 
-        if(checkConnection() == 0){
+        if(checkConnection() != 0){
         
         var db = window.openDatabase('local', '1.0', 'local', 2 * 1024 * 1024);
 
