@@ -99,9 +99,12 @@ $$(document).on('deviceready', function() {
     })
 
     function sync(){
+        if(checkConnection() == 0){
+            myApp.alert('Esta funcion requiere conexión a internet','Error'); 
+        }else{
         var options = { dimBackground: true };
         SpinnerPlugin.activityStart("Sincronizando..", options);
-
+        console.log('inicia');
         var db = window.openDatabase('local', '1.0', 'local', 2 * 1024 * 1024);            
             db.transaction(function (tx) {
                tx.executeSql('SELECT * FROM folio', [], function (tx, results) {
@@ -118,8 +121,9 @@ $$(document).on('deviceready', function() {
                 
                }, null);
             });
-        
+        console.log('termina');
         SpinnerPlugin.activityStop();
+        }
     }
 
 
