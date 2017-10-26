@@ -215,10 +215,12 @@ $$(document).on('deviceready', function() {
                       );
                     }
                     }else if(data['action']== 1){
-                        navigator.notification.beep(1);
+                        
                         console.log('Correcto');
-                        navigator.vibrate(3000);
+                       
                         if(alert_mode == true){
+                            navigator.notification.beep(1);
+                             navigator.vibrate(3000);
                       window.plugins.toast.showWithOptions(
                         {
                           message: "Registrado Correctamente",
@@ -242,9 +244,10 @@ $$(document).on('deviceready', function() {
                     }else if(data['action']== 3){
                         
                         console.log('Folio no vendido');
-                        navigator.notification.beep(2);
-                        navigator.vibrate(3000);
+                        
                         if(alert_mode == true){
+                            navigator.notification.beep(2);
+                        navigator.vibrate(3000);
                         window.plugins.toast.showWithOptions(
                         {
                           message: "Folio no vendido",
@@ -267,9 +270,10 @@ $$(document).on('deviceready', function() {
                     }else if(data['action']== 0){
                      
                       console.log('no existe');
-                      navigator.notification.beep(2);
-                      navigator.vibrate(3000);
+
                       if(alert_mode == true){
+                        navigator.notification.beep(2);
+                        navigator.vibrate(3000);
                         window.plugins.toast.showWithOptions(
                         {
                           message: "Folio no existente",

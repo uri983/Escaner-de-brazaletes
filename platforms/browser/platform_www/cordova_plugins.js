@@ -129,6 +129,22 @@ module.exports = [
             "navigator.notification",
             "navigator"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-dialogs/www/notification.js",
+        "id": "cordova-plugin-dialogs.notification",
+        "pluginId": "cordova-plugin-dialogs",
+        "merges": [
+            "navigator.notification"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-dialogs/www/browser/notification.js",
+        "id": "cordova-plugin-dialogs.notification_browser",
+        "pluginId": "cordova-plugin-dialogs",
+        "merges": [
+            "navigator.notification"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -144,7 +160,8 @@ module.exports.metadata =
     "cordova-plugin-splashscreen": "4.0.3",
     "cordova-plugin-spinner": "1.1.0",
     "cordova-plugin-sqlite-2": "1.0.4",
-    "cordova-plugin-vibration": "2.1.5"
+    "cordova-plugin-vibration": "2.1.5",
+    "cordova-plugin-dialogs": "1.3.3"
 }
 // BOTTOM OF METADATA
 });
