@@ -7,10 +7,16 @@
         "files": {}
     },
     "installed_plugins": {
+        "cordova-plugin-background-service": {
+            "PACKAGE_NAME": "com.apiqroo.scannerapp"
+        },
         "cordova-plugin-console": {
             "PACKAGE_NAME": "com.apiqroo.scannerapp"
         },
         "cordova-plugin-device-orientation": {
+            "PACKAGE_NAME": "com.apiqroo.scannerapp"
+        },
+        "cordova-plugin-dialogs": {
             "PACKAGE_NAME": "com.apiqroo.scannerapp"
         },
         "cordova-plugin-network-information": {
@@ -22,25 +28,19 @@
         "cordova-plugin-splashscreen": {
             "PACKAGE_NAME": "com.apiqroo.scannerapp"
         },
+        "cordova-plugin-sqlite-2": {
+            "PACKAGE_NAME": "com.apiqroo.scannerapp"
+        },
         "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.apiqroo.scannerapp"
+        },
+        "cordova-plugin-vibration": {
             "PACKAGE_NAME": "com.apiqroo.scannerapp"
         },
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.apiqroo.scannerapp"
         },
         "cordova-plugin-x-toast": {
-            "PACKAGE_NAME": "com.apiqroo.scannerapp"
-        },
-        "cordova-plugin-sqlite-2": {
-            "PACKAGE_NAME": "com.apiqroo.scannerapp"
-        },
-        "cordova-plugin-vibration": {
-            "PACKAGE_NAME": "com.apiqroo.scannerapp"
-        },
-        "cordova-plugin-dialogs": {
-            "PACKAGE_NAME": "com.apiqroo.scannerapp"
-        },
-        "cordova-plugin-background-service": {
             "PACKAGE_NAME": "com.apiqroo.scannerapp"
         }
     },

@@ -13,8 +13,11 @@ var mainView = myApp.addView('.view-main', {
 
 // Handle Cordova Device Ready Event
 $$(document).on('deviceready', function() {
+
+      var background_mode = true;
+
       window.BackgroundService.start(
-          function(fn) { sync(), fn && fn() },
+          function(fn) { sync(background_mode), fn && fn() },
           function() { console.log('err') }
       )
 
@@ -68,8 +71,9 @@ $$(document).on('deviceready', function() {
 
            
 
-            $("#btn_sync").on('click',function (e) {               
-                sync();  
+            $("#btn_sync").on('click',function (e) {
+                var background_mode = false;               
+                sync(background_mode);  
             })
 
     })
@@ -101,9 +105,11 @@ $$(document).on('deviceready', function() {
 
     })
 
-    function sync(){
+    function sync(background_mode){
         if(checkConnection() == 0){
+            if(background_mode == false){
             myApp.alert('Esta funcion requiere conexión a internet','Error'); 
+            }
         }else{
 
         
@@ -148,8 +154,12 @@ $$(document).on('deviceready', function() {
         
 
         SpinnerPlugin.activityStop();
-
-        myApp.alert('Sincronizado con éxito','Correcto');
+        if(background_mode == false){
+        myApp.alert('Sincronizado con éxito','Correcto');  
+        }else if(background_mode == true){
+          toast("Sincronizado con exito");
+        }
+        
 
         }
     }

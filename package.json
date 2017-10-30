@@ -1,0 +1,39 @@
+{
+    "name": "com.apiqroo.scannerapp",
+    "version": "1.0.0",
+    "displayName": "Escaner de brazaletes",
+    "cordova": {
+        "platforms": [
+            "browser"
+        ],
+        "plugins": {
+            "cordova-plugin-background-service": {},
+            "cordova-plugin-console": {},
+            "cordova-plugin-device-orientation": {},
+            "cordova-plugin-dialogs": {},
+            "cordova-plugin-network-information": {},
+            "cordova-plugin-spinner": {},
+            "cordova-plugin-splashscreen": {},
+            "cordova-plugin-sqlite-2": {},
+            "cordova-plugin-statusbar": {},
+            "cordova-plugin-vibration": {},
+            "cordova-plugin-whitelist": {},
+            "cordova-plugin-x-toast": {}
+        }
+    },
+    "dependencies": {
+        "cordova-browser": "~4.1.0",
+        "cordova-plugin-background-service": "~1.3.5",
+        "cordova-plugin-console": "~1.0.1",
+        "cordova-plugin-device-orientation": "~1.0.7",
+        "cordova-plugin-dialogs": "~1.3.3",
+        "cordova-plugin-network-information": "~1.3.3",
+        "cordova-plugin-spinner": "~1.1.0",
+        "cordova-plugin-splashscreen": "~4.0.3",
+        "cordova-plugin-sqlite-2": "~1.0.4",
+        "cordova-plugin-statusbar": "~1.0.1",
+        "cordova-plugin-vibration": "~2.1.5",
+        "cordova-plugin-whitelist": "~1.2.0",
+        "cordova-plugin-x-toast": "~2.6.0"
+    }
+}
