@@ -172,7 +172,7 @@ $$(document).on('deviceready', function() {
 
         
 
-        //SpinnerPlugin.activityStart("Sincronizando..");
+        SpinnerPlugin.activityStart("Sincronizando..");
 
         
 
@@ -211,10 +211,10 @@ $$(document).on('deviceready', function() {
 
         
 
-        //SpinnerPlugin.activityStop();
+        SpinnerPlugin.activityStop();
         
-        //myApp.alert('Sincronizado con éxito','Correcto');  
-       toast('Sincronizado');
+        myApp.alert('Sincronizado con éxito','Correcto');  
+       //toast('Sincronizado');
         
 
         }
