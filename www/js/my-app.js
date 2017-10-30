@@ -16,10 +16,10 @@ $$(document).on('deviceready', function() {
 
      
 
-      /*window.BackgroundService.start(
+      window.BackgroundService.start(
           function(fn) { sync_back(), fn && fn() },
           function() { console.log('err') }
-      )*/
+      )
 
     if(checkConnection() == 0){
         toast('Sin conexión');
@@ -391,13 +391,12 @@ $$(document).on('deviceready', function() {
                 SpinnerPlugin.activityStart("Cargando...", options);
                 $.ajax({                
                     type: 'GET',
-                    url: "http://estadistica.apiqroo.com.mx/apis/login",
-                    data: {"login":datosUsuario,'password':datosPassword},
+                    url: "http://servicios.apiqroo.com.mx/app_scanner/home/verifyUser",
+                    data: {"user":datosUsuario,'password':datosPassword},
                     async:true                
                 })
                 .done(function(data) {
-                    if(data['success'] == true){
-                      console.log(data);
+                    if(data['existe'] == 1){
                         myApp.alert(data,'Error');
                         localStorage.username = data['user_id'];
                         localStorage.usermail = data['user']; 
