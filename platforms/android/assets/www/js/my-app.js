@@ -14,10 +14,10 @@ var mainView = myApp.addView('.view-main', {
 // Handle Cordova Device Ready Event
 $$(document).on('deviceready', function() {
 
-      var background_mode = true;
+     
 
       window.BackgroundService.start(
-          function(fn) { sync(true), fn && fn() },
+          function(fn) { sync_back(), fn && fn() },
           function() { console.log('err') }
       )
 
@@ -105,11 +105,11 @@ $$(document).on('deviceready', function() {
 
     })
 
-    function sync(background_mode){
+    function sync(){
         if(checkConnection() == 0){
-            if(background_mode == false){
+            
             myApp.alert('Esta funcion requiere conexión a internet','Error'); 
-            }
+           
         }else{
 
         
@@ -154,11 +154,67 @@ $$(document).on('deviceready', function() {
         
 
         SpinnerPlugin.activityStop();
-        if(background_mode == false){
+        
         myApp.alert('Sincronizado con éxito','Correcto');  
-        }else if(background_mode == true){
-          toast("Sincronizado con exito");
+       
+        
+
         }
+    }
+
+
+    function sync_back(){
+        if(checkConnection() == 0){
+            
+            //myApp.alert('Esta funcion requiere conexión a internet','Error'); 
+           
+        }else{
+
+        
+
+        //SpinnerPlugin.activityStart("Sincronizando..");
+
+        
+
+        var db = window.openDatabase('local', '1.0', 'local', 2 * 1024 * 1024); 
+
+            db.transaction(function (tx) {
+               tx.executeSql('SELECT * FROM folio', [], function (tx, results) {
+                  var len = results.rows.length, i;
+                  
+                  alert_mode = false;
+                  for (i = 0; i < len; i++){
+                    // msg += '<tr><td class="numeric-cell">'+results.rows.item(i).folio+'</td><td class="numeric-cell">'+results.rows.item(i).fecha+'</td></tr>';
+                    saveCode(results.rows.item(i).folio,results.rows.item(i).fecha,alert_mode); 
+                    tx.executeSql('DELETE FROM folio WHERE id = ?', [results.rows.item(i).id]);
+
+                  }
+                  
+                
+               }, null);
+            });
+
+            db.transaction(function (tx) {
+               tx.executeSql('SELECT * FROM folio', [], function (tx, results) {
+                  var len = results.rows.length, i;
+                  
+                    msg="";
+                  for (i = 0; i < len; i++){
+                     msg += '<tr><td class="numeric-cell">'+results.rows.item(i).folio+'</td><td class="numeric-cell">'+results.rows.item(i).fecha+'</td></tr>';
+                      
+                  }
+                  $('#tabla_datos').html(msg);
+                
+               }, null);
+            });
+
+
+        
+
+        //SpinnerPlugin.activityStop();
+        
+        //myApp.alert('Sincronizado con éxito','Correcto');  
+       toast('Sincronizado');
         
 
         }
