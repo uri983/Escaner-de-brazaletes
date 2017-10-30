@@ -1,0 +1,57 @@
+<!-- We don't need a full layout in this file because this page will be parsed with Ajax. -->
+
+<!-- Top Navbar-->
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="left">
+            <a href="#" style="color: #0091BC;" class="back link">
+                <i class="fa fa-chevron-left"></i> 
+                <span class="">Atras</span>               
+            </a>
+        </div>
+        <div class="center sliding">Sincronizar</div>
+        <div class="right">
+            <a href="#" style="color: #0091BC;" class="link icon-only open-panel"><i class="fa fa-bars"></i></a>
+        </div>
+    </div>
+</div>
+<div class="pages">
+    <div style="background-color: #e7e7e9;" data-page="datos_local" class="page">
+        <div class="page-content">
+            <div class="content-block">
+
+                <div class="card">
+                    <div style="color: #ffffff; background-color: #0091BC;" class="card-header">Instrucciones</div>
+                <div class="card-content">
+                <div class="card-content-inner">
+                   <ul>
+                        <li>Listado de datos capturados sin conexión, estos datos estan guardados en tu dispositivo, por favor, sincroniza ahora para guardarlos en el sistema</li>                       
+                    </ul> 
+                    <a class="action-button w-button" id="btn_sync" style="background-color: #0091BC;">
+                                    Sincronizar
+                    </a>
+                </div>
+                </div>
+                </div>
+
+                <div class="data-table data-table-init card">
+                    <table>
+                    <thead>
+                    <tr>
+                                        
+                    <th class="numeric-cell">Folio</th>
+                    <th class="numeric-cell">Fecha</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tabla_datos">
+
+                    
+                    
+                    </tbody>
+                    </table>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

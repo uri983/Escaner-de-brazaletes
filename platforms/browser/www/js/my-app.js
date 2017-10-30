@@ -17,7 +17,7 @@ $$(document).on('deviceready', function() {
       var background_mode = true;
 
       window.BackgroundService.start(
-          function(fn) { sync(background_mode), fn && fn() },
+          function(fn) { sync(true), fn && fn() },
           function() { console.log('err') }
       )
 
