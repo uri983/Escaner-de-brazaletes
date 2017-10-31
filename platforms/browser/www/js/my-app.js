@@ -391,12 +391,18 @@ $$(document).on('deviceready', function() {
                 SpinnerPlugin.activityStart("Cargando...", options);
                 $.ajax({                
                     type: 'GET',
-                    url: "http://servicios.apiqroo.com.mx/app_scanner/home/verifyUser",
-                    data: {"user":datosUsuario,'password':datosPassword},
+                    
+                    url: "http://estadistica.apiqroo.com.mx/apis/login/",
+                    data: {"login":datosUsuario,'password':datosPassword},
                     async:true                
                 })
                 .done(function(data) {
-                    if(data['existe'] == 1){
+                  ///data = JSON.stringify(data);
+                  //valor = data;
+                  //var arr = Object.values(data);
+                  
+                  //console.log( data.indexOf("memo"));
+                    if(data.indexOf("true") > 0){
                         myApp.alert(data,'Error');
                         localStorage.username = data['user_id'];
                         localStorage.usermail = data['user']; 
