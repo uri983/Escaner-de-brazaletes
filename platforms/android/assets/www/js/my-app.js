@@ -404,8 +404,8 @@ $$(document).on('deviceready', function() {
                   //console.log( data.indexOf("memo"));
                     if(data.indexOf("true") > 0){
                         myApp.alert(data,'Error');
-                        localStorage.username = data['user_id'];
-                        localStorage.usermail = data['user']; 
+                        localStorage.username = "user";
+                        localStorage.usermail = "Bienvenido Usuario"; 
                         $('#name').html(localStorage.usermail);
                         myApp.closeModal();
                         SpinnerPlugin.activityStop();
