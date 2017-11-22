@@ -16,7 +16,7 @@ $$(document).on('deviceready', function() {
 
      
 
-      window.BackgroundService.start(
+     window.BackgroundService.start(
           function(fn) { sync_back(), fn && fn() },
           function() { console.log('err') }
       )
@@ -31,10 +31,16 @@ $$(document).on('deviceready', function() {
           
     }
 
+    $("#puertos").val(localStorage.puerto);
+
     $('#login').click(function (event){       
             
         submitLogin();           
 
+    });
+
+    $("#puertos").change(function() {
+       localStorage.puerto =  $("#puertos").val();     
     });
 
     $("#logout").on('click',function (e) {
@@ -245,14 +251,14 @@ $$(document).on('deviceready', function() {
 
         
         
-        puerto = "";
+        //puerto = localStorage.puerto;
         $.ajax({
                 type: 'POST',
                 url: 'http://servicios.apiqroo.com.mx/app_scanner/home/addFolios',
                 data: {
                     "code":code,
                     "date":date,
-                    "puerto": puerto                    
+                    "puerto": localStorage.puerto                    
                     },
                     success: function(data) {   
                      SpinnerPlugin.activityStop();                    
@@ -406,6 +412,7 @@ $$(document).on('deviceready', function() {
                         myApp.alert(data,'Error');
                         localStorage.username = "user";
                         localStorage.usermail = "Bienvenido Usuario"; 
+                        localStorage.puerto = "";
                         $('#name').html(localStorage.usermail);
                         myApp.closeModal();
                         SpinnerPlugin.activityStop();
