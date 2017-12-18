@@ -12,6 +12,9 @@ var mainView = myApp.addView('.view-main', {
 });
 
 // Handle Cordova Device Ready Event
+/*
+  Metodo que se ejecuta al iniciar la aplicación
+ */
 $$(document).on('deviceready', function() {
 
      
@@ -55,8 +58,10 @@ $$(document).on('deviceready', function() {
 });
 
 
-// Now we need to run the code that will be executed only for About page.
 
+    /*
+    Cuando carga la vista de datos por sincronizar
+     */
     myApp.onPageInit('datos_local', function (page) {
             
             
@@ -84,7 +89,9 @@ $$(document).on('deviceready', function() {
 
     })
 
-// Option 1. Using page callback for page (for "about" page in this case) (recommended way):
+    /*
+    Cuando carga la vista de capturas
+     */
     myApp.onPageInit('captura', function (page) {
             $('#code').focus();
             $('#code').focusout(function(){
@@ -110,6 +117,10 @@ $$(document).on('deviceready', function() {
 
 
     })
+
+    /*
+    Sincroniza la base de datos local con el servidor 
+     */
 
     function sync(){
         if(checkConnection() == 0){
@@ -169,6 +180,11 @@ $$(document).on('deviceready', function() {
     }
 
 
+    /*
+    Sincroniza la base de datos local con el servidor en tarea programada 
+     */
+
+
     function sync_back(){
         if(checkConnection() == 0){
             
@@ -226,7 +242,9 @@ $$(document).on('deviceready', function() {
         }
     }
 
-
+    /*
+    guarda la informacion de base de datos
+     */
     function saveCode(code,date,alert_mode) {
         var options = { dimBackground: true };
         if(alert_mode == true){
