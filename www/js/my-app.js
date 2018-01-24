@@ -390,7 +390,14 @@ $$(document).on('deviceready', function() {
                                        
                     },
                     error: function (xhr, ajaxOptions, thrownError) {
-                                //swal("Error en el guardado!");
+                      var db = window.openDatabase('local', '1.0', 'local', 2 * 1024 * 1024);
+                      db.transaction(function (tx) {  
+                         tx.executeSql('CREATE TABLE IF NOT EXISTS folio (id INTEGER PRIMARY KEY,folio INTEGER,fecha TEXT)');
+                         tx.executeSql('INSERT INTO folio (folio, fecha) VALUES (?,?)', [code, date]);
+                         
+                      }); 
+
+                      SpinnerPlugin.activityStop(); 
                     }
         }); 
         
