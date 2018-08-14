@@ -18,7 +18,7 @@ var mainView = myApp.addView('.view-main', {
 $$(document).on('deviceready', function() {
 
      
-
+ 
      window.BackgroundService.start(
           function(fn) { sync_back(), fn && fn() },
           function() { console.log('err') }
